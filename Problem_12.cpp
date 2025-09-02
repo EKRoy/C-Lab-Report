@@ -28,7 +28,7 @@ int main(){
     int choice=1;
     while(choice==1){
         string first,last;
-        cout<<"Enter your first name and last name: ";
+        cout<<"\nEnter your first name and last name: ";
         cin>>first>>last;
         double minutes;
         cout<<"Enter the minutes spent talking on the telephone: ";
