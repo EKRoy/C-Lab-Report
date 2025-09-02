@@ -1,4 +1,4 @@
-/*Program to check whether any given number is prime or not.
+/*06.Program to check whether any given number is prime or not.
  Write codes for both without user defined function*/
 
 #include<iostream>
@@ -22,7 +22,7 @@ int main(){
         if(isPrime){
             cout<<"The Number("<<n<<") is Prime"<<endl; 
         }
-        else cout<<"The Number(<<"<<n<<") is not Prime"<<endl;
+        else cout<<"The Number("<<n<<") is not Prime"<<endl;
 
          cout << "Do you want to put new values? (1=yes, 0=no): ";
         cin>>choice;
