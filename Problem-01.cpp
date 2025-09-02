@@ -1,5 +1,6 @@
-//Solve suppressed cubic equations(x^3-2x-5) or transcendental functions by using 
-// bisection & Newton-Raphson method
+/*01.Solve suppressed cubic equations(x^3-2x-5) or transcendental functions by using 
+ bisection & Newton-Raphson method */
+
 #include<iostream>
 #include<cmath>
 #include <iomanip>
