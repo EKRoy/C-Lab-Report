@@ -6,6 +6,7 @@ ii) Next 250 calls (151-400 minute) are charged at the rate of 1
 iii) And all calls after 400 minutes, are charged at the rate of 
     2/minute 
 Make sure you implement the idea using user-defined function. */
+
 #include<iostream>
 #include<cmath>
 #include <iomanip>
@@ -26,14 +27,13 @@ double telephoneBill(double minutes){
 int main(){
     int choice=1;
     while(choice==1){
-        string name;
-        cout<<"Enter your name: ";
-        cin.ignore();
-        getline(cin,name);
+        string first,last;
+        cout<<"Enter your first name and last name: ";
+        cin>>first>>last;
         double minutes;
         cout<<"Enter the minutes spent talking on the telephone: ";
         cin>>minutes;
-        cout<<"Mr./Ms."<<name<<endl;
+        cout<<"Mr./Ms. "<<first<<" "<<last<<endl;
         cout<<fixed<<setprecision(2);
         cout<<"Your telephone bill is:"<<telephoneBill(minutes)<<"Tk."<<endl;
         cout << "Do you want to calculate telephone bill for a different person? (1=yes, 0=no): ";
