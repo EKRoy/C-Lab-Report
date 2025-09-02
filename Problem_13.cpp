@@ -2,6 +2,7 @@
 Mathematics, RU and marks obtained in all courses including LAB and viva, 
 and print the overall GPA in year three following the standard grading 
 criteria of Applied Mathematics. */
+
 #include<iostream>
 #include<cmath>
 #include <iomanip>
@@ -33,10 +34,9 @@ double markToGpa2(double marks){
 int main(){
     int choice=1;
     while(choice==1){
-        string name;
-        cout<<"Enter the student name: "<<endl;
-        cin.ignore();
-        getline(cin,name);
+        string first,last;
+        cout<<"Enter the student first and last name: ";
+        cin>>first>>last;
         long long  roll;
         cout<<"Enter the roll number: ";
         cin>>roll;
@@ -62,6 +62,7 @@ int main(){
         sum+=ar[11];
         /*According to Applied Mathematics department if you fail in A.Math-320 then you fail*/
         if(M321<20){
+            cout<<"Mr./Ms. "<<first<<" "<<last<<endl;
             cout<<"Your CGPA =0.0"<<endl;
             cout<<"Sorry! you are fail."<<endl;
         }
@@ -72,11 +73,13 @@ int main(){
                 if(ar[i]==0) count++;
             }
             if(count>2) {
+                cout<<"Mr./Ms. "<<first<<" "<<last<<endl;
                 cout<<"Your CGPA =0.0"<<endl;
                cout<<"Sorry! you are fail."<<endl;
             }
             else{
-                cout<<"Your CGPA is: "<<sum/42;
+               cout<<"Mr./Ms. "<<first<<" "<<last<<endl;
+                cout<<"Your CGPA is: "<<sum/42<<endl;;
                 cout<<"Congratulation! You pass"<<endl;
             }
         }
