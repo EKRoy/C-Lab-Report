@@ -1,11 +1,13 @@
+/*Calculate the value of sinx  using its series for some 
+   given 𝑥 using WHILE or DO WHILE condition. */
 #include<iostream>
+#define _USE_MATH_DEFINES
 #include<cmath>
 #include <iomanip>
 using namespace std;
-#define pi 3.1416
-void sineFunction(double x,int n){
+void coseFunction(double x,int n){
     n--;
-    x=x*(pi/180);
+    x=x*(M_PI/180);
     double fact=1,sum=x;
     int i=1;
     while(i<=n){
@@ -14,7 +16,7 @@ void sineFunction(double x,int n){
         i++;
     }
     cout << fixed << setprecision(10);
-    cout<<"The value of sinx is:"<<sum<<endl;
+    cout<<"The value of sin("<<x<<") is:"<<sum<<endl;
 }
 int main(){
     int n;
@@ -25,7 +27,7 @@ int main(){
         cin>>n;
         cout<<"Enter the value of x in degree."<<endl;
         cin>>x;
-        sineFunction(x,n);
+        coseFunction(x,n);
         cout << "Do you want to put new values? (1=yes, 0=no): ";
         cin>>y;
     }
