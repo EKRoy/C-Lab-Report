@@ -21,10 +21,10 @@ void logFunction(double x,int n){
     cout<<"The approximate value of log(1+"<<x<<")= "<<2*sum/log(10)<<endl;
 }
 int main(){
-     int n;
-    double x;
     int choice=1;
     while(choice==1){
+        int n;
+       double x;
         cout<<"Enter the number of term(n>0: ";
         cin>>n;
         cout<<"Enter the value of x(x>=0) for log(1+y) series: ";
