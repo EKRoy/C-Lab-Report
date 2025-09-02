@@ -23,7 +23,7 @@ int main(){
         if(checkPrime(n)){
             cout<<"The Number("<<n<<") is Prime"<<endl; 
         }
-        else cout<<"The Number(<<"<<n<<") is not Prime"<<endl;
+        else cout<<"The Number("<<n<<") is not Prime"<<endl;
 
          cout << "Do you want to put new values? (1=yes, 0=no): ";
         cin>>choice;
