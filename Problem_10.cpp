@@ -8,6 +8,7 @@ Make sure you implement the idea using user-defined function. */
 #include<iostream>
 #include<cmath>
 #include <iomanip>
+#include <limits>
 using namespace std;
 double electricBill(double units){
     double bill=0.0;
@@ -26,14 +27,13 @@ double electricBill(double units){
 int main(){
     int choice=1;
     while(choice==1){
-        string name;
-        cout<<"Enter your name: ";
-        cin.ignore();
-        getline(cin,name);
+        string first,last;
+        cout<<"Enter your first name and last name: ";
+        cin>>first>>last;
         double units;
         cout<<"Enter your consumed units: ";
         cin>>units;
-        cout<<"Mr/ms. "<<name<<endl;
+        cout<<"Mr/ms. "<<first<<" "<<last<<endl;
         cout<<fixed<<setprecision(2);
         cout<<"Your Electric Bill is:"<<electricBill(units)<<"Tk."<<endl;
         cout << "Do you want to put new values? (1=yes, 0=no): ";
