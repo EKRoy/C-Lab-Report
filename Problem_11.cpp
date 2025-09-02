@@ -32,13 +32,13 @@ double incomeTax(double income){
 int main(){
     int choice=1;
     while(choice==1){
-        string name;
-        cout<<"Enter your name: ";
-        cin.ignore();
-        getline(cin,name);
+        string first,last;
+        cout<<"Enter your name first and last name : ";
+        cin>>first>>last;
         double income;
         cout<<"Enter your yearly income: ";
         cin>>income;
+        cout<<"Mr./Ms. "<<first<<" "<<last<<endl;
         cout<<fixed<<setprecision(2);
         cout<<"Your income tax is: "<<incomeTax(income)<<"TK."<<endl;
         cout << "Do you want to calculate income tax for a different person? (1=yes, 0=no): ";
