@@ -1,32 +1,30 @@
 /*Program to check whether any given number is prime or not.
  Write codes for both with user defined function*/
-
-#include<iostream>
-#include<cmath>
-#include <iomanip>
+#include <iostream>
 using namespace std;
-bool checkPrime(int n){
-    if(n==1) return false;
-    for(int i=2;i*i<=n;i++){
-        if(n%i==0){
-            return false;
+void isPrime(int n)
+{
+    bool flag = true;
+    for (int i = 2; i < n; i = i + 1)
+    {
+        if (n % i == 0)
+        {
+            flag = false;
         }
     }
-    return true;
+    if (flag == true)
+    {
+        cout << "is prime number" << endl;
+    }
+    else
+        cout << "is not prime number" << endl;
 }
-int main(){
-    int choice=1;
-    while(choice==1){
-        int n;
-        cout<<"Enter the number you check: ";
-        cin>>n;
-        if(checkPrime(n)){
-            cout<<"The Number("<<n<<") is Prime"<<endl; 
-        }
-        else cout<<"The Number("<<n<<") is not Prime"<<endl;
+int main()
+{
+    int n;
+    cout << "Enter the value of n:" << endl;
+    cin >> n;
+    isPrime(n);
 
-         cout << "Do you want to put new values? (1=yes, 0=no): ";
-        cin>>choice;
-    }
-   return 0;
+    return 0;
 }
