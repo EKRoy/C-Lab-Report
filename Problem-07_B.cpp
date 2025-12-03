@@ -8,7 +8,7 @@ void factorial(int n)
     long long fact = 1;
     for (int i = 1; i <= n; i++)
     {
-        fact *= i;
+        fact = fact * i;
     }
     cout << "The factorial of the given number is: " << fact << endl;
 }
