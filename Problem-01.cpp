@@ -28,6 +28,7 @@ void BisectionMethod(double a, double b)
             b = c;
         else
             a = c;
+
         c = (a + b) / 2;
     }
     cout << "According to Bisection Method " << endl;
@@ -35,7 +36,7 @@ void BisectionMethod(double a, double b)
 }
 void NewtonRapshon(double x1)
 {
-    double x0 = 0;
+    double x0;
     int i = 1;
     cout << "According to Newton Rapshon" << endl;
     while (fabs(x1 - x0) >= t)
@@ -48,7 +49,7 @@ void NewtonRapshon(double x1)
         }
         x1 = x0 - f(x0) / ff(x0);
         cout << "At step- " << "x" << i << " = " << x1 << endl;
-        i++;
+        i=i+1;
     }
     cout << "The root of the function is: " << x1 << endl;
     cout << "Iteration number is " << i - 1 << endl;
