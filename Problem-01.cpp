@@ -47,7 +47,7 @@ void NewtonRapshon(double x1)
             return;
         }
         x1 = x0 - f(x0) / ff(x0);
-        cout << "At step- " << i << "x= " << x1 << endl;
+        cout << "At step- " << "x" << i << " = " << x1 << endl;
         i++;
     }
     cout << "The root of the function is: " << x1 << endl;
@@ -62,5 +62,6 @@ int main()
     cin >> d;
     BisectionMethod(a, b);
     NewtonRapshon(d);
+
     return 0;
 }
