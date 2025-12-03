@@ -29,12 +29,13 @@ void telephoneBill(double minutes)
 int main()
 {
     string first, last;
-    cout << "\nEnter your first name and last name: ";
+    cout << "Enter your first name and last name: ";
     cin >> first >> last;
+    cout << first << " " << last << endl;
+     
     double minutes;
     cout << "Enter the minutes spent talking on the telephone: ";
     cin >> minutes;
-    cout << first << " " << last << endl;
     telephoneBill(minutes);
     return 0;
 }
