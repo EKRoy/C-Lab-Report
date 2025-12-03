@@ -23,12 +23,12 @@ void incomeTax(double income)
     {
         tax = 0 + 250000 * 0.05 + (income - 500000) * 0.1;
     }
-    else if (income <= 50000000)
+    else if (income <= 5000000)
     {
         tax = 0 + 250000 * 0.05 + 500000 * 0.1 + (income - 1000000) * 0.2;
     }
     else
-        tax = 0 + 250000 * 0.05 + 500000 * 0.1 + 1000000 * 0.2 + (income - 5000000) * 0.4;
+        tax = 0 + 250000 * 0.05 + 500000 * 0.1 + 40000000 * 0.2 + (income - 5000000) * 0.4;
         
     cout<<"Income tax:"<<tax<<endl;
 }
@@ -44,3 +44,4 @@ int main()
     incomeTax(income);
     return 0;
 }
+
