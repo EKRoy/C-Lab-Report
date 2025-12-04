@@ -3,17 +3,22 @@ given 𝑥 using WHILE or DO WHILE condition. */
 
 #include <iostream>
 #include <cmath>
-#include <iomanip>
 using namespace std;
 void logFunction(double x, int n)
 {
+    if (x >= 1)
+    {
+        cout << "Not valid ,Enter x<1" << endl;
+        return;
+    }
     double y = 1 + x;
     double v = (y - 1) / (y + 1);
     double sum = 0;
-    int i=1;
-    while(i<=2*n){
+    int i = 1;
+    while (i <= 2 * n)
+    {
         sum = sum + pow(v, i) / i;
-        i += 2;
+        i = i + 2;
     }
     cout << "The actual value of log(1+x) using standard library is: " << log10(y) << endl;
     cout << "The approximate value of log(1+" << x << ")= " << 2 * sum / log(10) << endl;
@@ -24,9 +29,9 @@ int main()
 {
     int n;
     double x;
-    cout << "Enter the number of term(n>0: ";
+    cout << "Enter the number of term(n>0): " << endl;
     cin >> n;
-    cout << "Enter the value of x(x>=0) for log(1+y) series: ";
+    cout << "Enter the value of x(x>=0) for log(1+y) series: " << endl;
     cin >> x;
     logFunction(x, n);
 
