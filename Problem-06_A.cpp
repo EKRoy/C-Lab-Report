@@ -7,6 +7,10 @@ int main()
     int n;
     cout << "Enter the value of n:" << endl;
     cin >> n;
+	if(n<=1) {
+		cout << "It is not prime number" << endl;
+		return 0;
+	}
     bool flag = true;
     for (int i = 2; i < n; i = i + 1)
     {
@@ -17,10 +21,10 @@ int main()
     }
     if (flag == true)
     {
-        cout << "is prime number" << endl;
+        cout << " It is prime number" << endl;
     }
     else
-        cout << "is not prime number" << endl;
+        cout << "It is not prime number" << endl;
 
     return 0;
 }
