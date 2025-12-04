@@ -9,7 +9,7 @@ double markToGpa(double marks)
     if (marks >= 80)
         return 4;
     else if (marks >= 75)
-        return 3.75;  
+        return 3.75;
     else if (marks >= 70)
         return 3.5;
     else if (marks >= 65)
@@ -42,25 +42,19 @@ int main()
         cout << "Enter marks obtained A.Math-30" << i + 1 << ": ";
         cin >> marks;
         ar[i] = markToGpa(marks) * 4;
-        sum =sum+ ar[i];
+        sum = sum + ar[i];
     }
     cout << "Enter marks obtained in the course A.Math-320: ";
     cin >> M320;
     ar[9] = markToGpa(M320) * 4;
-    sum =sum+ ar[9];
+    sum = sum + ar[9];
 
     cout << "Enter marks obtained in the course A.Math-321(out of 50): ";
     cin >> M321;
     ar[10] = markToGpa(2 * M321) * 2;
-    sum =sum+ ar[10];
-   
-    if (M320 < 40)
-    {
-        cout << first << " " << last << endl;
-        cout << "Your CGPA =0.0" << endl;
-        cout << "Sorry! you are fail." << endl;
-    }
-    else if (M321 < 20)
+    sum = sum + ar[10];
+
+    if (M320 < 40 || M321 < 20)
     {
         cout << first << " " << last << endl;
         cout << "Your CGPA =0.0" << endl;
@@ -68,12 +62,13 @@ int main()
     }
     else
     {
-        int count = 0;
+        int fail_count = 0;
         for (int i = 0; i <= 10; i++)
         {
-            if (ar[i] == 0)  count=count+1;
+            if (ar[i] == 0)
+                fail_count = fail_count + 1;
         }
-        if (count > 2)
+        if (fail_count > 2)
         {
             cout << first << " " << last << endl;
             cout << "Your CGPA =0.0" << endl;
