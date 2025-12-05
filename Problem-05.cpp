@@ -1,29 +1,27 @@
 /*Calculate the value of log⁡(1+𝑥) using its series for some
 given 𝑥 using WHILE or DO WHILE condition. */
-
 #include <iostream>
 #include <cmath>
 using namespace std;
 void logFunction(double x, int n)
 {
-    if (x >= 1)
+    if (x <= -1 || x > 1)
     {
-        cout << "Not valid ,Enter x<1" << endl;
-        return;
+        cout << "Series does not converge for this x. Please enter -1 < x <= 1." << endl;
     }
-    double y = 1 + x;
-    double v = (y - 1) / (y + 1);
-    double sum = 0;
-    int i = 1;
-    while (i <= 2 * n)
+    else
     {
-        sum = sum + pow(v, i) / i;
-        i = i + 2;
+        double sum=0;
+        int i=1;
+        while(i<=n){
+            sum+=pow(-1,i+1)*pow(x,i)/i;
+            i=i+1;
+        }
+        cout << "The actual value of log(1+x) using standard library is: " << log(1+x) << endl;
+        cout << "The approximate value of log(1+x)= " <<  sum  << endl;
+        double error = abs(log(1+x)) - sum;
+        cout << "Error= " << error << endl;
     }
-    cout << "The actual value of log(1+x) using standard library is: " << log10(y) << endl;
-    cout << "The approximate value of log(1+" << x << ")= " << 2 * sum / log(10) << endl;
-    double error = abs(log10(y) - 2 * sum / log(10));
-    cout << "Error= " << error << endl;
 }
 int main()
 {
@@ -31,7 +29,7 @@ int main()
     double x;
     cout << "Enter the number of term(n>0): " << endl;
     cin >> n;
-    cout << "Enter the value of x(x>=0) for log(1+y) series: " << endl;
+    cout << "Enter the value of x(x>=0) for log(1+x) series: " << endl;
     cin >> x;
     logFunction(x, n);
 
