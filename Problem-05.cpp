@@ -11,16 +11,14 @@ void logFunction(double x, int n)
     }
     else
     {
-        double sum=0;
-        int i=1;
-        while(i<=n){
-            sum+=pow(-1,i+1)*pow(x,i)/i;
-            i=i+1;
+        double sum = 0;
+        int i = 1;
+        while (i <= n)
+        {
+            sum += pow(-1, i + 1) * pow(x, i) / i;
+            i = i + 1;
         }
-        cout << "The actual value of log(1+x) using standard library is: " << log(1+x) << endl;
-        cout << "The approximate value of log(1+x)= " <<  sum  << endl;
-        double error = abs(log(1+x)) - sum;
-        cout << "Error= " << error << endl;
+        cout << "The approximate value of log(1+x)= " << sum << endl;
     }
 }
 int main()
