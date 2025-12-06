@@ -1,3 +1,5 @@
+/*Program to find the inverse of a given square matrix using row-elementary
+ operations. */
 #include <bits/stdc++.h>
 using namespace std;
 int main()
@@ -80,3 +82,4 @@ int main()
     }
     return 0;
 }
+
