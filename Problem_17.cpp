@@ -42,7 +42,7 @@ void backSubstitution(double a[][101], double x[], int n)
         if (a[i][i] == 0)
         {
             cout << "\nThe system is inconsistent\n";
-            exit(0);
+            return;
         }
         else
         {
@@ -84,3 +84,4 @@ int main()
 
     return 0;
 }
+
