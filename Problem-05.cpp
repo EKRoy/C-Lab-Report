@@ -18,7 +18,7 @@ void logFunction(double x, int n)
             sum += pow(-1, i + 1) * pow(x, i) / i;
             i = i + 1;
         }
-        cout << "The approximate value of log(1+x)= " << sum << endl;
+        cout << "The approximate value of log(1+x)= " << sum/log(10) << endl;
     }
 }
 int main()
