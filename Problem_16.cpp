@@ -1,15 +1,15 @@
 // Determinant using Row-Elementary Operations with vector
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
     cout << fixed << setprecision(2);
     int n;
-    cout << "Enter the dimension of the matrix: "<<endl;
+    cout << "Enter the dimension of the matrix: " << endl;
     cin >> n;
     double a[100][100];
-    cout << "Enter the elements of the matrix row-wise:"<<endl;
+    cout << "Enter the elements of the matrix row-wise:" << endl;
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
@@ -46,18 +46,10 @@ int main()
         }
     }
 
-    cout << "The matrix after Gaussian Elimination is:"<<endl;
+    // Calculate determinant from diagonal
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < n; j++){
-            cout << a[i][j] << " ";
-        }
-        cout << endl;
-    }
-
-    // Calculate determinant from diagonal
-    for (int i = 0; i < n; i++){
-        determinant *= a[i][i];
+        determinant = determinant * a[i][i];
     }
 
     cout << "\nThe required determinant is: " << determinant << endl;
