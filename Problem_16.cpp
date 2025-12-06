@@ -24,7 +24,7 @@ int main()
     {
         for (int k = i + 1; k < n; k++)
         {
-            if (abs(a[i][i]) < abs(a[k][i]))
+            if (fabs(a[i][i]) < fabs(a[k][i]))
             {
                 for (int j = 0; j < n; j++)
                 {
