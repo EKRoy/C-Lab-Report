@@ -29,8 +29,8 @@ int main()
                 for (int j = 0; j < n; j++)
                 {
                     swap(a[i][j], a[k][j]);
-                    determinant = determinant * -1;
                 }
+                determinant = determinant * -1;
             }
         }
     }
