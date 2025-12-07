@@ -10,7 +10,7 @@ int main()
     cout << "Enter the number: ";
     cin >> s;
     int n = s.length();
-    //largest number
+    // largest number
     for (int i = 0; i < n - 1; i++)
     {
         for (int j = i + 1; j < n; j++)
@@ -24,7 +24,7 @@ int main()
         }
     }
     cout << "The largest number is: " << s << endl;
-    //smallest number
+    // smallest number
     for (int i = 0; i < n - 1; i++)
     {
         for (int j = i + 1; j < n; j++)
@@ -34,6 +34,18 @@ int main()
                 char temp = s[i];
                 s[i] = s[j];
                 s[j] = temp;
+            }
+        }
+    }
+    //first zero remove
+    if (s[0] == '0')
+    {
+        for (int i = 1; i < n; i++)
+        {
+            if (s[i] != '0')
+            {
+                swap(s[0], s[i]);
+                break;
             }
         }
     }
