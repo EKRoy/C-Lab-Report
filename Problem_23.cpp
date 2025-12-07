@@ -1,93 +1,112 @@
-/*Write an OOP to solve a system of 𝑛 linear equations by using Gauss’s 
+/*Write an OOP to solve a system of 𝑛 linear equations by using Gauss’s
 Elimination method.*/
 // OOP to solve a nxn Linear system
-#include <iostream>
-#include <vector>
-#include <iomanip>
-#include <cmath>
-
+#include <bits/stdc++.h>
 using namespace std;
-
-class GaussianElimination {
+class GaussElimination
+{
 private:
-    int n;  
-    vector<vector<double>> augmentedMat; 
+    double a[100][101];
+    double x[100];
+    int n;
 
 public:
-    GaussianElimination(int size) : n(size), augmentedMat(size, vector<double>(size + 1)) {}
-
-    void inputMatrix() {
-        cout << "Enter the coefficients of the augmented matrix (including RHS) row by row:\n";
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j <= n; ++j) {
-                cin >> augmentedMat[i][j];
+    GaussElimination()
+    { // constructor
+        cout << fixed << setprecision(3);
+        cout << "Enter the number of equation" << endl;
+        cin >> n;
+        cout << "Enter the argument matrix row-wise(include RHS)" << endl;
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n + 1; j++)
+            {
+                cin >> a[i][j];
             }
         }
     }
-
-    vector<double> solve() {
-        for (int i = 0; i < n; ++i) {
-            if (fabs(augmentedMat[i][i]) < 1e-9) {
-                for (int k = i + 1; k < n; ++k) {
-                    if (fabs(augmentedMat[k][i]) > 1e-9) {
-                        swap(augmentedMat[i], augmentedMat[k]);
-                        break;
-                    }
-                }
-            }
-
-            double pivot = augmentedMat[i][i];
-            for (int j = 0; j <= n; ++j) {
-                augmentedMat[i][j] /= pivot;
-            }
-
-            for (int k = i + 1; k < n; ++k) {
-                double factor = augmentedMat[k][i];
-                for (int j = 0; j <= n; ++j) {
-                    augmentedMat[k][j] -= factor * augmentedMat[i][j];
-                }
-            }
-        }
-
-        vector<double> solution(n, 0);
-        for (int i = n - 1; i >= 0; --i) {
-            solution[i] = augmentedMat[i][n];
-            for (int j = i + 1; j < n; ++j) {
-                solution[i] -= augmentedMat[i][j] * solution[j];
-            }
-        }
-
-        return solution;
-    }
-
-    void displayMatrix() {
-        cout << "Augmented Matrix:\n";
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j <= n; ++j) {
-                cout << setw(10) << augmentedMat[i][j] << " ";
+    void printMatrix()
+    {
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n + 1; j++)
+            {
+                cout << a[i][j] << " ";
             }
             cout << endl;
         }
     }
-};
-
-int main() {
-    int n;
-    cout << "Enter the number of equations: ";
-    cin >> n;
-
-    GaussianElimination solver(n);
-    solver.inputMatrix();
-
-    cout << "\nInitial Augmented Matrix:\n";
-    solver.displayMatrix();
-
-    vector<double> solution = solver.solve();
-
-    cout << "\nSolution:\n";
-    for (int i = 0; i < n; ++i) {
-        cout << "x" << i + 1 << " = " << solution[i] << endl;
+    void pivotisation()
+    {
+        for (int i = 0; i < n; i++)
+        {
+            for (int k = i + 1; k < n; k++)
+            {
+                if (fabs(a[i][i]) < fabs(a[k][i]))
+                {
+                    for (int j = 0; j < n + 1; j++)
+                    {
+                        swap(a[i][j], a[k][j]);
+                    }
+                }
+            }
+        }
     }
-
+    void elimination()
+    {
+        for (int i = 0; i < n - 1; i++)
+        {
+            for (int k = i + 1; k < n; k++)
+            {
+                if (fabs(a[i][i]) < 1e-12)
+                {
+                    cout << "The system is inconsistent" << endl;
+                    exit(0);
+                }
+                double factor = a[k][i] / a[i][i];
+                for (int j = 0; j < n + 1; j++)
+                {
+                    a[k][j] -= factor * a[i][j];
+                }
+            }
+        }
+    }
+    void backSubstitution()
+    {
+        for (int i = n - 1; i >= 0; i--)
+        {
+            if (fabs(a[i][i]) < 1e-12)
+            {
+                cout << "The system is inconsistent" << endl;
+                exit(0);
+            }
+            x[i] = a[i][n];
+            for (int j = i + 1; j < n; j++)
+            {
+                x[i] -= a[i][j] * x[j];
+            }
+            x[i] /= a[i][i];
+        }
+    }
+    void solve()
+    {
+        pivotisation();
+        cout << "After Pivotisation: " << endl;
+        printMatrix();
+        elimination();
+        cout << "After Elimination:" << endl;
+        printMatrix();
+        backSubstitution();
+        cout << "Solution: " << endl;
+        for (int i = 0; i < n; i++)
+        {
+            cout << "x" << "[" << i << "]= " << x[i] << endl;
+        }
+    }
+};
+int main()
+{
+    GaussElimination obj;
+    obj.solve();
     return 0;
 }
