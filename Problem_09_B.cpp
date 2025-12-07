@@ -34,6 +34,17 @@ void smallestNumber(string s, int n)
             }
         }
     }
+    if (s[0] == '0')
+    {
+        for (int i = 1; i < n; i++)
+        {
+            if (s[i] != '0')
+            {
+                swap(s[0], s[i]);
+                break;
+            }
+        }
+    }
     cout << "The smallest number is: " << s << endl;
 }
 
