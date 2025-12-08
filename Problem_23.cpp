@@ -5,15 +5,11 @@ Elimination method.*/
 using namespace std;
 class GaussElimination
 {
-private:
+public:
     double a[100][101];
     double x[100];
     int n;
-
-public:
-    GaussElimination()
-    { // constructor
-        cout << fixed << setprecision(3);
+    void input(){
         cout << "Enter the number of equation" << endl;
         cin >> n;
         cout << "Enter the argument matrix row-wise(include RHS)" << endl;
@@ -25,17 +21,7 @@ public:
             }
         }
     }
-    void printMatrix()
-    {
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < n + 1; j++)
-            {
-                cout << a[i][j] << " ";
-            }
-            cout << endl;
-        }
-    }
+
     void pivotisation()
     {
         for (int i = 0; i < n; i++)
@@ -52,7 +38,7 @@ public:
             }
         }
     }
-    void elimination()
+    void calculate()
     {
         for (int i = 0; i < n - 1; i++)
         {
@@ -61,7 +47,7 @@ public:
                 if (fabs(a[i][i]) < 1e-12)
                 {
                     cout << "The system is inconsistent" << endl;
-                    exit(0);
+                    return;
                 }
                 double factor = a[k][i] / a[i][i];
                 for (int j = 0; j < n + 1; j++)
@@ -78,7 +64,7 @@ public:
             if (fabs(a[i][i]) < 1e-12)
             {
                 cout << "The system is inconsistent" << endl;
-                exit(0);
+                return;
             }
             x[i] = a[i][n];
             for (int j = i + 1; j < n; j++)
@@ -87,26 +73,19 @@ public:
             }
             x[i] /= a[i][i];
         }
-    }
-    void solve()
-    {
-        pivotisation();
-        cout << "After Pivotisation: " << endl;
-        printMatrix();
-        elimination();
-        cout << "After Elimination:" << endl;
-        printMatrix();
-        backSubstitution();
         cout << "Solution: " << endl;
         for (int i = 0; i < n; i++)
         {
-            cout << "x" << "[" << i << "]= " << x[i] << endl;
+            cout << "x"<< i << " = " << x[i] << endl;
         }
     }
 };
 int main()
 {
     GaussElimination obj;
-    obj.solve();
+    obj.input();
+    obj.pivotisation();
+    obj.calculate();
+    obj.backSubstitution();
     return 0;
 }
