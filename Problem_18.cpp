@@ -1,4 +1,4 @@
-\/*Program to solve a system of 𝑛 linear equations by using Cramer’s rule. */
+/*Program to solve a system of 𝑛 linear equations by using Cramer’s rule. */
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -106,3 +106,4 @@ int main()
 
     return 0;
 }
+
